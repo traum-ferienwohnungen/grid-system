@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>TFW Grid System</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
+	<link rel="stylesheet" href="../dist/grid.css" />
+	<link rel="stylesheet" href="demo.css" />
+
+	<link rel="stylesheet" href="prism.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+</head>
+<body>
+
+	<div class="grid">
+		<div class="grid__row">
+			<div class="grid__column grid__column--s-paddingless">
+				<h1>TFG Grid System</h1>
+				<p>TFW grid system uses a series of containers, rows, and columns to layout and align content. It’s built with flexbox and is fully responsive. Below is an example and an in-depth look at how the grid comes together.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="grid">
+
+		<div class="grid__row">
+
+			<div class="grid__column grid__column--4 grid__column--s12">
+				<div class="box">grid__column</div>
+			</div>
+
+			<div class="grid__column grid__column--4 grid__column--s12">
+				<div class="box">grid__column</div>
+			</div>
+
+			<div class="grid__column grid__column--4 grid__column--s12">
+				<div class="box">grid__column</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="grid">
+		<div class="grid__row">
+			<div class="grid__column">
+
+				<code class="language-markup">
+&lt;div class="grid">
+	&lt;div class="grid__row">
+		&lt;div class="grid__column grid__column--4">grid__column&lt;/div>
+		&lt;div class="grid__column grid__column--4">grid__column&lt;/div>
+		&lt;div class="grid__column grid__column--4">grid__column&lt;/div>
+	&lt;/div>
+&lt;/div>
+				</code>
+
+				<p>The above example creates three equal-width columns on medium and large devices using our predefined grid classes. Those columns are centered in the page with the parent <code class="highlight">.grid</code>.</p>
+
+				<h2>Breaking it down, here’s how it works</h2>
+
+				<ul>
+					<li>Containers provide a means to center and horizontally pad your site’s contents. Use <code class="highlight">.grid</code> for a responsive width in percentages or <code class="highlight">.grid--full</code> for <code class="highlight">width: 100%</code> across all viewport and device sizes.</li>
+					<li>Rows are wrappers for columns. Each column has horizontal <code class="highlight">padding</code> (called a gutter) for controlling the space between them. This <code class="highlight">padding</code> is then counteracted on the rows with negative margins. This way, all the content in your columns is visually aligned down the left side.</li>
+					<li>In a grid layout, content must be placed within columns and only columns may be immediate children of rows.</li>
+					<li>Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So, if you want three equal-width columns across, you can use <code class="highlight">.grid__column .grid__column--4</code>.</li>
+					<li>Column <code class="highlight">width</code>s are set in percentages, so they’re always fluid and sized relative to their parent element.</li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="grid">
+		<div class="grid__row">
+			<div class="grid__column">
+
+				<h2>Different display sizes, different column sizes</h2>
+
+				<p>It might be the case that you need to adapt your layout according to certain screen sizes. The following table shows you what modifier you need to add to your columns to get the desired result.</p>
+
+				<table class="table table-bordered table-striped">
+					<thead>
+					<tr>
+						<th></th>
+						<th class="left">
+							Small<br>
+							<small>&lt;767px</small>
+						</th>
+						<th class="left">
+							Medium<br>
+							<small>&lt;1023px</small>
+						</th>
+						<th class="left">
+							Large<br>
+							<small>≥1024px</small>
+						</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<th class="text-nowrap" scope="row">Max container width</th>
+						<td>767px</td>
+						<td>1023px</td>
+						<td>1276px</td>
+					</tr>
+					<tr>
+						<th class="text-nowrap" scope="row">Class prefix</th>
+						<td><code class="highlight">.grid__column--s{x}</code></td>
+						<td><code class="highlight">.grid__column--m{x}</code></td>
+						<td><code class="highlight">.grid__column--{x}</code></td>
+					</tr>
+					<tr>
+						<th class="text-nowrap" scope="row"># of columns</th>
+						<td colspan="5">12</td>
+					</tr>
+					</tbody>
+				</table>
+
+				<h3>Transforming column example</h3>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="grid">
+
+		<div class="grid__row">
+			<div class="grid__column grid__column--4 grid__column--m6 grid__column--s12">
+
+				<div class="box">
+					grid__column<code class="highlight">--4</code> <br>
+					grid__column<code class="highlight">--m3</code> <br>
+					grid__column<code class="highlight">--s12</code>
+				</div>
+
+			</div>
+
+			<div class="grid__column grid__column--8 grid__column--m6 grid__column--s12">
+
+				<div class="box">
+					grid__column<code class="highlight">--8</code> <br>
+					grid__column<code class="highlight">--m6</code> <br>
+					grid__column<code class="highlight">--s12</code>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="grid">
+		<div class="grid__row">
+			<div class="grid__column">
+
+				<code class="language-markup">
+&lt;div class="grid">
+	&lt;div class="grid__row">
+		&lt;div class="grid__column grid__column--4 grid__column--m3 grid__column--s12">grid__column&lt;/div>
+		&lt;div class="grid__column grid__column--8 grid__column--m6 grid__column--s12">grid__column&lt;/div>
+	&lt;/div>
+&lt;/div>
+				</code>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="grid">
+
+		<div class="grid__row">
+			<div class="grid__column">
+				<h2>Paddingless Columns</h2>
+
+				<p>Sometimes it is necessary to create a paddingless columns, especially on mobile devices, for seamless slider from end to end of the screen for example. You can easily add <code class="highlight">.grid__column--paddingless</code> to each column if you want to set that specific column to no padding.</p>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="grid">
+		<div class="grid__row">
+			<div class="grid__column">
+
+				<code class="language-markup">
+&lt;div class="grid">
+	&lt;div class="grid__row">
+		&lt;div class="grid__column grid__column--paddingless">...&lt;/div>
+		&lt;div class="grid__column grid__column--m-paddingless">...&lt;/div>
+		&lt;div class="grid__column grid__column--s-paddingless">...&lt;/div>
+	&lt;/div>
+&lt;/div>
+				</code>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="grid">
+
+		<div class="grid__row">
+			<div class="grid__column">
+				<h2>Demos</h2>
+			</div>
+		</div>
+
+		<div class="grid__row">
+			<div class="grid__column">
+
+				<h2>Mobile columns</h2>
+
+			</div>
+		</div>
+
+		<div class="grid__row">
+
+			<div class="grid__column grid__column--3 grid__column--s8">
+				<div class="box">
+					grid__column--3 <br>
+					grid__column<code class="highlight">--s8</code>
+				</div>
+			</div>
+
+			<div class="grid__column grid__column--3 grid__column--s4">
+				<div class="box">
+					grid__column--3 <br>
+					grid__column<code class="highlight">--s4</code>
+				</div>
+			</div>
+
+			<div class="grid__column grid__column--3 grid__column--s4">
+				<div class="box">
+					grid__column--3 <br>
+					grid__column<code class="highlight">--s4</code>
+				</div>
+			</div>
+
+			<div class="grid__column grid__column--3 grid__column--s8">
+				<div class="box">
+					grid__column--3 <br>
+					grid__column<code class="highlight">--s8</code>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="grid">
+		<div class="grid__row">
+			<div class="grid__column">
+
+				<code class="language-markup">
+&lt;div class="grid">
+	&lt;div class="grid__row">
+		&lt;div class="grid__column grid__column--3 grid__column--s8">grid__column&lt;/div>
+		&lt;div class="grid__column grid__column--3 grid__column--s4">grid__column&lt;/div>
+		&lt;div class="grid__column grid__column--3 grid__column--s4">grid__column&lt;/div>
+		&lt;div class="grid__column grid__column--3 grid__column--s8">grid__column&lt;/div>
+	&lt;/div>
+&lt;/div>
+				</code>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="grid grid--spaced-evenly">
+
+		<div class="grid__row">
+
+			<div class="grid__column">
+
+				<h2>Spaced Grid</h2>
+				<p>It is often the case that you want to create an evenly distributed grid when using multiple <code class="highlight">.grid_row</code>s. To achieve that kind of distribution just add the modifier <code class="highlight">--spaced-evenly</code> to your parent <code class="highlight">grid</code>. Every column will get a spacing set on the bottom defined by <code class="highlight">$grid-gutter-width</code> (default: 20px) except the last one. This is especially useful in boxed layouts.</p>
+
+			</div>
+
+		</div>
+
+		<div class="grid__row">
+
+			<div class="grid__column grid__column--1 grid__column--s12">
+				<div class="box">1</div>
+			</div>
+
+			<div class="grid__column grid__column--1 grid__column--s12">
+				<div class="box">2</div>
+			</div>
+
+			<div class="grid__column grid__column--1 grid__column--s12">
+				<div class="box">3</div>
+			</div>
+
+			<div class="grid__column grid__column--1 grid__column--s12">
+				<div class="box">4</div>
+			</div>
+
+			<div class="grid__column grid__column--1 grid__column--s12">
+				<div class="box">5</div>
+			</div>
+
+			<div class="grid__column grid__column--1 grid__column--s12">
+				<div class="box">6</div>
+			</div>
+
+			<div class="grid__column grid__column--1 grid__column--s12">
+				<div class="box">7</div>
+			</div>
+
+			<div class="grid__column grid__column--1 grid__column--s12">
+				<div class="box">8</div>
+			</div>
+
+			<div class="grid__column grid__column--1 grid__column--s12">
+				<div class="box">9</div>
+			</div>
+
+			<div class="grid__column grid__column--1 grid__column--s12">
+				<div class="box">10</div>
+			</div>
+
+			<div class="grid__column grid__column--1 grid__column--s12">
+				<div class="box">11</div>
+			</div>
+
+			<div class="grid__column grid__column--1 grid__column--s12">
+				<div class="box">12</div>
+			</div>
+
+		</div>
+
+		<div class="grid__row">
+
+			<div class="grid__column grid__column--2 grid__column--s12">
+				<div class="box">2</div>
+			</div>
+
+			<div class="grid__column grid__column--2 grid__column--s12">
+				<div class="box">4</div>
+			</div>
+
+			<div class="grid__column grid__column--2 grid__column--s12">
+				<div class="box">6</div>
+			</div>
+
+			<div class="grid__column grid__column--2 grid__column--s12">
+				<div class="box">8</div>
+			</div>
+
+			<div class="grid__column grid__column--2 grid__column--s12">
+				<div class="box">10</div>
+			</div>
+
+			<div class="grid__column grid__column--2 grid__column--s12">
+				<div class="box">12</div>
+			</div>
+
+		</div>
+
+		<div class="grid__row">
+
+			<div class="grid__column grid__column--3 grid__column--s12">
+				<div class="box">3</div>
+			</div>
+
+			<div class="grid__column grid__column--3 grid__column--s12">
+				<div class="box">6</div>
+			</div>
+
+			<div class="grid__column grid__column--3 grid__column--s12">
+				<div class="box">9</div>
+			</div>
+
+			<div class="grid__column grid__column--3 grid__column--s12">
+				<div class="box">12</div>
+			</div>
+
+		</div>
+
+		<div class="grid__row">
+
+			<div class="grid__column grid__column--6 grid__column--s12">
+				<div class="box">6</div>
+			</div>
+
+			<div class="grid__column grid__column--6 grid__column--s12">
+				<div class="box">12</div>
+			</div>
+
+		</div>
+
+		<div class="grid__row">
+
+			<div class="grid__column">
+				<div class="box">12</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="grid grid--spaced-evenly">
+
+		<div class="grid__row">
+
+			<div class="grid__column">
+
+				<h2>Row Directions</h2>
+				<p>It is possible to manipulate the flex direction of a row by adding certain modifiers to the <code class="highlight">.grid__row</code>. Modifiers are:
+					<br>
+					<code class="highlight">--{size}-direction-r </code> <b>Direction: row</b> <br>
+					<code class="highlight">--{size}-direction-rr</code> <b>Direction: row-reverse</b> <br>
+					<code class="highlight">--{size}-direction-c </code> <b>Direction: column</b> <br>
+					<code class="highlight">--{size}-direction-cr</code> <b>Direction: column-reverse</b>
+
+				</p>
+
+			</div>
+
+		</div>
+
+		<div class="grid__row grid__row--m-direction-rr grid__row--s-direction-cr">
+
+			<div class="grid__column">
+				<div class="box">2</div>
+			</div>
+
+			<div class="grid__column">
+				<div class="box">4</div>
+			</div>
+
+			<div class="grid__column">
+				<div class="box">6</div>
+			</div>
+
+			<div class="grid__column">
+				<div class="box">8</div>
+			</div>
+
+			<div class="grid__column">
+				<div class="box">10</div>
+			</div>
+
+			<div class="grid__column">
+				<div class="box" style="background: tomato">12</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="grid">
+		<div class="grid__row">
+			<div class="grid__column">
+
+				<code class="language-markup">
+&lt;div class="grid">
+	&lt;div class="grid__row grid__row--m-direction-rr grid__row--s-direction-cr">
+		&lt;div class="grid__column">2&lt;/div>
+		&lt;div class="grid__column">4&lt;/div>
+		&lt;div class="grid__column">6&lt;/div>
+		&lt;div class="grid__column">8&lt;/div>
+		&lt;div class="grid__column">12&lt;/div>
+	&lt;/div>
+&lt;/div>
+				</code>
+
+			</div>
+		</div>
+	</div>
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.js"></script>
+
+</body>
+</html>

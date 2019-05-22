@@ -1,0 +1,48 @@
+@mixin create-column($device, $i, $width) {
+	&--#{$device}#{$i} {
+		flex-basis: $width;
+		max-width: $width;
+	}
+}
+
+@mixin create-paddingless-option($device) {
+	@if ($device) {
+		&--#{$device}-paddingless {
+			padding: 0;
+		}
+	} @else {
+		&--paddingless {
+			padding: 0;
+		}
+	}
+}
+
+@mixin create-flex-direction($device) {
+	@if ($device) {
+		&--#{$device}-direction-r {
+			flex-direction: row;
+		}
+		&--#{$device}-direction-rr {
+			flex-direction: row-reverse;
+		}
+		&--#{$device}-direction-c {
+			flex-direction: column;
+		}
+		&--#{$device}-direction-cr {
+			flex-direction: column-reverse;
+		}
+	} @else {
+		&--direction-r {
+			flex-direction: row;
+		}
+		&--direction-rr {
+			flex-direction: row-reverse;
+		}
+		&--direction-c {
+			flex-direction: column;
+		}
+		&--direction-cr {
+			flex-direction: column-reverse;
+		}
+	}
+}

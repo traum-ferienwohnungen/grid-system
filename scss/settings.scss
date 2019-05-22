@@ -1,0 +1,14 @@
+$grid-page-width: 1276px;
+$grid-page-width-small: 1060px;
+$grid-gutter-width: 20px;
+$grid-columns: 12;
+$grid-column-width: (100 / $grid-columns) / 100;
+
+$column-prefix-small: s;
+$column-prefix-medium: m;
+
+$device-screen: "only screen";
+$device-medium: "#{$device-screen} and (min-width: 768px) and (max-width: 1023px)";
+$device-small: "#{$device-screen} and (max-width: 767px)";
+
+$screen-sizes: (null, $device-screen), ($column-prefix-medium, $device-medium), ($column-prefix-small, $device-small);

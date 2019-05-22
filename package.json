@@ -1,0 +1,26 @@
+{
+  "name": "@traum-ferienwohnungen/grid-system",
+  "version": "1.5.0",
+  "description": "Lightweight grid system based on flexbox and BEM styles",
+  "scripts": {
+    "build": "parcel build scss/grid.scss",
+    "prepublishOnly": "npm run build",
+    "postpublish": "rm -rf dist",
+    "preversion": "npm run build",
+    "version": "git add -f -A dist",
+    "postversion": "git push && git push --tags && rm -rf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Tobias Cichon <cichon@traum-ferienwohnungen.de>",
+  "license": "GPL-3.0",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^9.5.0",
+    "parcel-bundler": "^1.12.3",
+    "postcss-modules": "^1.4.1",
+    "sass": "^1.17.4"
+  }
+}

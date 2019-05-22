@@ -1,0 +1,75 @@
+@import "settings";
+@import "mixins";
+
+.grid {
+	box-sizing: border-box;
+	max-width: $grid-page-width;
+	padding: 0 ($grid-gutter-width / 2);
+	margin: 0 auto;
+	width: 100%;
+
+	&--full-width {
+		max-width: 100%;
+		padding: 0;
+	}
+
+	&--spaced-evenly {
+		.grid__row {
+			padding-bottom: $grid-gutter-width;
+
+			&:last-of-type {
+				padding-bottom: 0;
+			}
+		}
+
+		@media #{$device-small} {
+			.grid__row {
+				&:last-of-type {
+					padding-bottom: 0;
+				}
+
+				.grid__column {
+					padding-bottom: $grid-gutter-width;
+
+					&:last-of-type {
+						padding-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+
+	&__row {
+		box-sizing: border-box;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 ($grid-gutter-width / -2);
+
+		@each $size, $dimensions in $screen-sizes {
+			@media #{$dimensions} {
+				@include create-flex-direction($size);
+			}
+		}
+	}
+
+	&__column {
+		box-sizing: border-box;
+		padding: 0 ($grid-gutter-width / 2);
+		flex-basis: 100%;
+		max-width: 100%;
+		min-width: 0; // crucial for even column distribution without defining column count!
+
+		@each $size, $dimensions in $screen-sizes {
+
+			@media #{$dimensions} {
+				@for $i from 1 through $grid-columns {
+					$width: percentage($grid-column-width * $i);
+
+					@include create-column($size, $i, $width);
+				}
+
+				@include create-paddingless-option($size);
+			}
+		}
+	}
+}
