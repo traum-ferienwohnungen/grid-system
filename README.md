@@ -7,17 +7,22 @@ For detailed instructions see `demo/index.html`
 ## Installing
 
 ```bash
-npm install @traum-ferienwohnungen/tfw-grid-system
+npm install @traum-ferienwohnungen/grid-system
+```
+
+### ES6
+```javascript
+import "@traum-ferienwohnungen/grid-system"
 ```
 
 ### SCSS
 ```scss
-@import ~/@traum-ferienwohnungen/tfw-grid-system/scss/grid;
+@import ~/@traum-ferienwohnungen/grid-system;
 ```
 
 ### CSS
 ```css
-@import ~/@traum-ferienwohnungen/tfw-grid-system/dist/grid;
+@import ~/@traum-ferienwohnungen/grid-system/dist/grid;
 ```
 
 ## Developer Guide
